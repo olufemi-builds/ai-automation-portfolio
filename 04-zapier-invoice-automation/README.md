@@ -48,18 +48,6 @@ This is an example shown in the evidence, not a claim about live production volu
 - The screenshots do not show the weekly schedule settings or the report-delivery configuration. The weekly run is part of the user's implementation, but the exact schedule settings and delivery destination should only be documented in more detail when supported by the Zap configuration or additional evidence.
 - The evidence does not establish a configured invoice-amount filter such as a less-than-$200 condition.
 
-## Evidence to add
-
-Add screenshots to this folder when available. Useful evidence includes:
-
-- QuickBooks Online trigger showing **New Invoice Paid**.
-- Google Sheets action showing the spreadsheet, worksheet and field mapping.
-- GPT for Sheets formula and generated summary.
-
-## Security and privacy
-
-Do not publish QuickBooks credentials, Zapier connection details, API keys, customer information, real invoice records or confidential business data. Use synthetic or anonymised spreadsheet examples in public screenshots.
-
 ## Project scope
 
 This project demonstrates recurring weekly automation for invoice tracking and AI-assisted spreadsheet summarisation. It should not be described as a complete accounts-receivable platform.
