@@ -1,33 +1,46 @@
-# 01 — Build Your First Workflow
+# 01 — Customer Registration Form Automation
 
-**Platform:** n8n
+**Platform:** n8n  
+**Trigger:** n8n Form Trigger  
+**Action:** Insert Row in an n8n Data Table
 
 ## Objective
 
-Build a simple automation that connects one trigger to one action, maps at least one field from the trigger into the action, and verifies the result with a test execution.
+Capture customer registration details through an n8n form and automatically store the submitted values in an n8n Data Table.
 
-## Workflow design
+## Workflow
 
-1. A configured trigger starts the workflow.
-2. The workflow passes a selected trigger field to the next node.
-3. An action node processes or delivers the mapped value.
-4. A test execution is reviewed to confirm the workflow behaves as expected.
+`On form submission` → `Insert row`
 
-## Implementation evidence
+1. The form collects **Customer Name** and **Email Address**.
+2. The Form Trigger starts the workflow when a registration is submitted.
+3. The Insert Row node writes the submitted values to the **Customer Registrations** data table.
 
-Add the sanitised n8n workflow export and screenshots to this folder:
+## Field mapping
 
-- `workflow.json` — exported workflow with credentials and sensitive values removed.
+| Form field | Data Table column | Expression |
+|---|---|---|
+| Customer Name | `Customer_Name` | `={{ $json["Customer Name"] }}` |
+| Email Address | `Email_Address` | `={{ $json["Email Address"] }}` |
+
+## Import and configuration
+
+The committed `workflow.json` is a sanitised export. Before running it in your n8n instance:
+
+1. Import the JSON workflow.
+2. Open the **Insert row** node and select your own **Customer Registrations** data table (or create a table with the two columns above).
+3. Save the node configuration and verify the form trigger's test/production URL settings in your instance.
+4. Submit a test registration using synthetic data.
+5. Confirm that the submitted name and email appear in the corresponding data-table columns.
+
+The original export's instance metadata, pinned test submission and personal email address were excluded. The data-table identifier was replaced with a placeholder, so the node must be configured for your own n8n instance after import.
+
+## Evidence to add
+
 - `screenshots/workflow-canvas.png` — workflow canvas.
-- `screenshots/successful-execution.png` — successful test execution.
+- `screenshots/successful-execution.png` — successful execution using synthetic test data.
+- Optionally, a screenshot of the resulting data-table row with all personal information masked.
 
-## What to document
+## Privacy and security
 
-- The repetitive task the workflow addresses.
-- Why the trigger and action were selected.
-- Which trigger field is mapped into the action.
-- A testing issue encountered and how it was resolved.
-
-## Security
-
-Do not commit credentials, API keys, tokens, private email addresses or personal data.
+Customer names and email addresses are personal data. Use synthetic or anonymised records in public demonstrations. Do not commit real registration submissions, credentials, webhook URLs or private instance identifiers.
