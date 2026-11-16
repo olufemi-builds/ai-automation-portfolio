@@ -41,7 +41,7 @@ The source column is named `Email Address`; the nurture destination column is na
 
 The form also generates a submission timestamp. The current workflow does not map that timestamp into the nurture sheet or include it in the email notification.
 
-## Assignment notes
+##  Notes
 
 **Condition chosen:** The workflow checks whether `Budget (₦)` is greater than or equal to ₦500,000. Leads meeting this threshold trigger an email alert. Leads below the threshold are added to the Nurture sheet.
 
