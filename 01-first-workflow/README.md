@@ -35,12 +35,6 @@ The committed `workflow.json` is a sanitised export. Before running it in your n
 
 The original export's instance metadata, pinned test submission and personal email address were excluded. The data-table identifier was replaced with a placeholder, so the node must be configured for your own n8n instance after import.
 
-## Evidence to add
-
-- `screenshots/workflow-canvas.png` — workflow canvas.
-- `screenshots/successful-execution.png` — successful execution using synthetic test data.
-- Optionally, a screenshot of the resulting data-table row with all personal information masked.
-
 ## Privacy and security
 
 Customer names and email addresses are personal data. Use synthetic or anonymised records in public demonstrations. Do not commit real registration submissions, credentials, webhook URLs or private instance identifiers.
