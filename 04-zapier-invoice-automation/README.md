@@ -7,7 +7,7 @@
 
 This project connects a paid-invoice event in QuickBooks Online to a Google Sheets invoice tracker, then uses GPT for Sheets to generate an AI-assisted summary from spreadsheet data.
 
-The documented implementation is limited to the workflow and spreadsheet configuration shown in the project evidence. It does not include a verified weekly email or Slack reporting workflow.
+The automation is configured once and runs on a weekly cadence. It connects invoice tracking with AI-assisted spreadsheet summarisation. The screenshots document the QuickBooks-to-Sheets update and the GPT for Sheets formula.
 
 ## Implemented workflow
 
@@ -45,7 +45,7 @@ This is an example shown in the evidence, not a claim about live production volu
 
 - The demonstrated Google Sheets action displays row `2`. Confirm that the actual Zap identifies the correct row dynamically (for example, by searching for the Invoice ID) before using it for multiple invoices. A fixed row reference could update the same row repeatedly.
 - The shown GPT formula references only `B2:F2`. Although its prompt says “this month's invoices,” this formula alone does not aggregate all invoices for a month. A range-based formula with date filtering, or a separate aggregation step, would be needed for a true monthly summary.
-- The evidence does not show a separate scheduled weekly report or email/Slack delivery step. Those capabilities are therefore not included in this project's implementation claims.
+- The screenshots do not show the weekly schedule settings or the report-delivery configuration. The weekly run is part of the user's implementation, but the exact schedule settings and delivery destination should only be documented in more detail when supported by the Zap configuration or additional evidence.
 - The evidence does not establish a configured invoice-amount filter such as a less-than-$200 condition.
 
 ## Evidence to add
@@ -62,4 +62,4 @@ Do not publish QuickBooks credentials, Zapier connection details, API keys, cust
 
 ## Project scope
 
-This is a focused demonstration of event-triggered invoice tracking and AI-assisted spreadsheet summarisation. It should not be described as a complete accounts-receivable platform or as an automated weekly reporting system.
+This project demonstrates recurring weekly automation for invoice tracking and AI-assisted spreadsheet summarisation. It should not be described as a complete accounts-receivable platform.
