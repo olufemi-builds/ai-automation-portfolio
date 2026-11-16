@@ -63,8 +63,6 @@ The committed `workflow.json` is a sanitised export. Before using it:
 8. Test one lead at or above ₦500,000 and confirm the notification is sent.
 9. Activate the workflow only after both branches have been verified.
 
-Spreadsheet IDs, credential references, the original notification address, webhook ID and instance-specific metadata have been removed or replaced with placeholders. The workflow is intentionally inactive in this public export.
-
 ## Privacy and responsible handling
 
 - Keep real lead names, email addresses and form submissions out of public repository files and screenshots.
@@ -72,14 +70,6 @@ Spreadsheet IDs, credential references, the original notification address, webho
 - Collect only information required for lead qualification and follow-up.
 - Apply appropriate access controls to both the response and nurture spreadsheets.
 
-## Testing and evidence
-
-Capture and add the following using synthetic lead records:
-
-- `screenshots/workflow-canvas.png` — trigger, IF node and both branches.
-- `screenshots/true-branch-notification.png` — successful qualified-lead email with personal details masked.
-- `screenshots/false-branch-sheet-log.png` — lead successfully appended to the nurture sheet.
-- `screenshots/branch-test-cases.png` — test values showing one budget below and one at or above ₦500,000.
 
 ## Implementation note
 
