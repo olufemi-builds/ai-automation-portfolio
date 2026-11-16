@@ -29,9 +29,11 @@ Build an AI-assisted article summarisation workflow that reads newly added artic
 | Output sheet | `Summary` | Text returned by the model |
 | Output sheet | `Review Status` | Set to `Pending human review` |
 
-## Prompt design
+## Prompt design and reflection
 
-The model instruction asks for exactly two concise sentences, a summary based only on the supplied article, and no invented facts or external information. This is an instruction, not a hard validation rule; review the generated text before use.
+The prompt was refined through three iterations, from a vague request to a source-grounded instruction with a defined two-sentence output. The prompt comparison records the prompts, observed outputs, hallucination risks and human-review process.
+
+See [Prompt Practice and Reflection](./prompts/prompt-comparison.md). The final prompt is also represented in the workflow export. Prompt constraints guide the model but do not guarantee factual accuracy or enforce the sentence count; review the generated text before use.
 
 ## Import and configuration
 
