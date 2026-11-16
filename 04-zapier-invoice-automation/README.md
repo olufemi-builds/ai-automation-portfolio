@@ -1,48 +1,65 @@
-# 04 — Invoice Tracking and Reporting Automation
+# 04 — Invoice Tracking and AI-Assisted Reporting
 
 **Platform:** Zapier  
 **Services:** QuickBooks Online, Google Sheets, GPT for Sheets
 
 ## Overview
 
-This project automates parts of an invoice-tracking and reporting process by connecting invoice data with a Google Sheets tracker and AI-assisted summaries.
+This project connects a paid-invoice event in QuickBooks Online to a Google Sheets invoice tracker, then uses GPT for Sheets to generate an AI-assisted summary from spreadsheet data.
 
-## Capabilities described for this implementation
+The documented implementation is limited to the workflow and spreadsheet configuration shown in the project evidence. It does not include a verified weekly email or Slack reporting workflow.
 
-- Track invoice information from QuickBooks Online in Google Sheets.
-- Apply workflow filtering to selected invoice records.
-- Generate AI-assisted summaries from spreadsheet data.
-- Reflect paid-invoice updates in the tracking workflow.
-- Prepare recurring performance reports for delivery by email or Slack, depending on the configured workflow.
+## Implemented workflow
 
-## Workflow documentation
+1. **Trigger — QuickBooks Online: New Invoice Paid**  
+   Zapier listens for a newly paid invoice in QuickBooks Online.
 
-Document each Zap separately, including:
+2. **Action — Google Sheets: Update Spreadsheet Row**  
+   The Zap updates a row in the `Zaps Automation` spreadsheet, on `Sheet2`. The demonstrated field mapping sends QuickBooks' `Document Number` to the spreadsheet's `Invoice ID` column.
 
-1. Trigger application and event.
-2. Data fields retrieved from the source.
-3. Filters and conditional rules.
-4. Google Sheets actions and field mappings.
-5. AI summary prompt and output handling.
-6. Reporting schedule and delivery destination.
+3. **AI-assisted summary — GPT for Sheets**  
+   The spreadsheet uses a GPT formula to create a natural-language summary from invoice fields.
 
-Only describe steps that are present in the actual Zap configuration. Confirm whether examples such as a less-than-$200 filter are part of the published implementation before documenting them as configured rules.
+   ```excel
+   =GPT("Summarize this month's invoices: " & TEXTJOIN(", ", TRUE, B2:F2))
+   ```
 
-## Implementation evidence
+   The displayed example summarises the customer, amount, payment status, invoice date and due date.
 
-Add sanitised screenshots under `screenshots/`, for example:
+## Demonstrated example
 
-- Zap workflow overview.
-- Invoice tracker with synthetic or anonymised data.
-- AI summary output.
-- Scheduled report configuration or test output.
+The spreadsheet screenshot shows one example record:
 
-If exporting workflow configuration is supported, add a sanitised export and explain any setup requirements.
+| Field | Displayed value |
+|---|---|
+| Invoice ID | 1003 |
+| Customer | Toyo |
+| Amount | 100 |
+| Status | paid |
+| Invoice date | 2025-05-03 |
+| Due date | 2025-06-02 |
+
+This is an example shown in the evidence, not a claim about live production volume or business results.
+
+## Technical considerations and limitations
+
+- The demonstrated Google Sheets action displays row `2`. Confirm that the actual Zap identifies the correct row dynamically (for example, by searching for the Invoice ID) before using it for multiple invoices. A fixed row reference could update the same row repeatedly.
+- The shown GPT formula references only `B2:F2`. Although its prompt says “this month's invoices,” this formula alone does not aggregate all invoices for a month. A range-based formula with date filtering, or a separate aggregation step, would be needed for a true monthly summary.
+- The evidence does not show a separate scheduled weekly report or email/Slack delivery step. Those capabilities are therefore not included in this project's implementation claims.
+- The evidence does not establish a configured invoice-amount filter such as a less-than-$200 condition.
+
+## Evidence to add
+
+Add screenshots to this folder when available. Useful evidence includes:
+
+- QuickBooks Online trigger showing **New Invoice Paid**.
+- Google Sheets action showing the spreadsheet, worksheet and field mapping.
+- GPT for Sheets formula and generated summary.
 
 ## Security and privacy
 
-Do not publish QuickBooks credentials, Zapier connection details, API keys, customer names, real invoice numbers, email addresses or confidential financial records. Use synthetic or anonymised examples in public evidence.
+Do not publish QuickBooks credentials, Zapier connection details, API keys, customer information, real invoice records or confidential business data. Use synthetic or anonymised spreadsheet examples in public screenshots.
 
-## Notes
+## Project scope
 
-This project is an invoice and reporting automation use case. Keep the description factual and avoid publishing performance claims unless they have been measured and verified.
+This is a focused demonstration of event-triggered invoice tracking and AI-assisted spreadsheet summarisation. It should not be described as a complete accounts-receivable platform or as an automated weekly reporting system.
