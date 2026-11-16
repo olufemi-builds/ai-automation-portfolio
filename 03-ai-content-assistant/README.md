@@ -65,8 +65,3 @@ The spreadsheet IDs are placeholders. OAuth credential references and instance-s
 - There is no downstream sentence-count validation node.
 - The workflow appends each processed record and does not deduplicate repeated article rows.
 
-## Evidence to add
-
-- `screenshots/workflow-canvas.png` — the three connected nodes.
-- `screenshots/successful-execution.png` — successful trigger, model and append-row execution.
-- `screenshots/output-sheet.png` — sample title, summary and pending-review status, using non-sensitive sample content.
